@@ -1,0 +1,502 @@
+<!-- ============================================== -->
+<!-- TELA: CONFIGURAÇÕES                            -->
+<!-- ============================================== -->
+<h2 class="tela-titulo">Configurações</h2>
+
+<!-- Painel único: todas as gavetas de categoria ficam
+     dentro deste container e apenas empurram umas às
+     outras para baixo ao expandir. -->
+<div class="cfg-panel">
+
+    <!-- ============================================== -->
+    <!-- GAVETA: ESTUDAR                                -->
+    <!-- Expansão 100% HTML/CSS via <details>/<summary> -->
+    <!-- ============================================== -->
+    <details class="cfg-drawer" open>
+        <summary class="cfg-drawer-header">
+            <span class="cfg-caret" aria-hidden="true"></span>
+            <span class="cfg-drawer-title">Estudar</span>
+        </summary>
+
+        <div class="cfg-drawer-body">
+
+            <!-- ============================================== -->
+            <!-- SUBGAVETA 1: Tela de Estudo (aberta por padrão) -->
+            <!-- ============================================== -->
+            <details class="cfg-subdrawer" open>
+                <summary class="cfg-drawer-header">
+                    <span class="cfg-caret" aria-hidden="true"></span>
+                    <span class="cfg-drawer-title">Tela de Estudo</span>
+                </summary>
+
+                <div class="cfg-subdrawer-body">
+                    <div class="cfg-options">
+
+                        <!-- Seletor: Tamanho dos blocos -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Tamanho dos blocos</span>
+                            <div class="cfg-segmented" role="radiogroup" aria-label="Tamanho dos blocos">
+                                <input type="radio" name="cfg-tamanho-blocos" id="cfg-tb-p" value="pequeno">
+                                <label for="cfg-tb-p">Pequeno</label>
+                                <input type="radio" name="cfg-tamanho-blocos" id="cfg-tb-n" value="normal" checked>
+                                <label for="cfg-tb-n">Normal</label>
+                                <input type="radio" name="cfg-tamanho-blocos" id="cfg-tb-g" value="grande">
+                                <label for="cfg-tb-g">Grande</label>
+                            </div>
+                        </div>
+
+                        <!-- Seletor: Posição do texto original -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Posição do texto original</span>
+                            <div class="cfg-segmented" role="radiogroup" aria-label="Posição do texto original">
+                                <input type="radio" name="cfg-posicao-texto" id="cfg-pt-e" value="esquerda" checked>
+                                <label for="cfg-pt-e">Esquerda</label>
+                                <input type="radio" name="cfg-posicao-texto" id="cfg-pt-d" value="direita">
+                                <label for="cfg-pt-d">Direita</label>
+                            </div>
+                        </div>
+
+                        <!-- Seletor: Botão de Favorito / Alerta -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Botão de Favorito / Alerta</span>
+                            <div class="cfg-segmented" role="radiogroup" aria-label="Botão de Favorito / Alerta">
+                                <input type="radio" name="cfg-botao-favorito" id="cfg-bf-d" value="dividido" checked>
+                                <label for="cfg-bf-d">Dividido</label>
+                                <input type="radio" name="cfg-botao-favorito" id="cfg-bf-s" value="separados">
+                                <label for="cfg-bf-s">Separados</label>
+                            </div>
+                        </div>
+
+                        <!-- Toggle: Botão 'Voltar frase' -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Botão "Voltar frase"</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-voltar-frase" aria-label="Botão Voltar frase">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Toggle: Exibir filtros ativos na tela -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Exibir filtros ativos na tela</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-exibir-filtros"
+                                    aria-label="Exibir filtros ativos na tela">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Toggle: Som ao acertar (ativo por padrão) -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Som ao acertar</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-som-acerto" checked aria-label="Som ao acertar">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Toggle: Som ao errar (ativo por padrão) -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Som ao errar</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-som-erro" checked aria-label="Som ao errar">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+
+            <!-- ============================================== -->
+            <!-- SUBGAVETA 2: Menu de Filtros (fechada padrão)  -->
+            <!-- ============================================== -->
+            <details class="cfg-subdrawer">
+                <summary class="cfg-drawer-header">
+                    <span class="cfg-caret" aria-hidden="true"></span>
+                    <span class="cfg-drawer-title">Menu de Filtros</span>
+                </summary>
+
+                <div class="cfg-subdrawer-body">
+                    <div class="cfg-options">
+
+                        <!-- Seletor: Tamanho dos botões -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Tamanho dos botões</span>
+                            <div class="cfg-segmented" role="radiogroup" aria-label="Tamanho dos botões">
+                                <input type="radio" name="cfg-tamanho-botoes" id="cfg-mb-c" value="compacto" checked>
+                                <label for="cfg-mb-c">Compacto</label>
+                                <input type="radio" name="cfg-tamanho-botoes" id="cfg-mb-f" value="confortavel">
+                                <label for="cfg-mb-f">Confortável</label>
+                            </div>
+                        </div>
+
+                        <!-- Toggle: Fixar ativos no topo -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Fixar ativos no topo</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-fixar-ativos" aria-label="Fixar ativos no topo">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Toggle: Ocultar filtros vazios -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Ocultar filtros vazios</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-ocultar-vazios" aria-label="Ocultar filtros vazios">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+
+        </div>
+    </details>
+
+    <!-- ============================================== -->
+    <!-- GAVETA: LABORATÓRIO (placeholder modular)      -->
+    <!-- ============================================== -->
+    <details class="cfg-drawer">
+        <summary class="cfg-drawer-header">
+            <span class="cfg-caret" aria-hidden="true"></span>
+            <span class="cfg-drawer-title">Laboratório</span>
+        </summary>
+
+        <div class="cfg-drawer-body">
+
+            <!-- Subgaveta 1 -->
+            <details class="cfg-subdrawer">
+                <summary class="cfg-drawer-header">
+                    <span class="cfg-caret" aria-hidden="true"></span>
+                    <span class="cfg-drawer-title">Subcategoria 1</span>
+                </summary>
+
+                <div class="cfg-subdrawer-body">
+                    <div class="cfg-options">
+
+                        <!-- Placeholder: Toggle -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 1</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-lab-s1-op1"
+                                    aria-label="Laboratório - Subcategoria 1 - Opção 1">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Placeholder: Seletor -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 2</span>
+                            <div class="cfg-segmented" role="radiogroup"
+                                aria-label="Laboratório - Subcategoria 1 - Opção 2">
+                                <input type="radio" name="cfg-lab-s1-op2" id="cfg-lab-s1-op2-a" value="modo-a" checked>
+                                <label for="cfg-lab-s1-op2-a">Modo A</label>
+                                <input type="radio" name="cfg-lab-s1-op2" id="cfg-lab-s1-op2-b" value="modo-b">
+                                <label for="cfg-lab-s1-op2-b">Modo B</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+
+            <!-- Subgaveta 2 -->
+            <details class="cfg-subdrawer">
+                <summary class="cfg-drawer-header">
+                    <span class="cfg-caret" aria-hidden="true"></span>
+                    <span class="cfg-drawer-title">Subcategoria 2</span>
+                </summary>
+
+                <div class="cfg-subdrawer-body">
+                    <div class="cfg-options">
+
+                        <!-- Placeholder: Toggle -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 1</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-lab-s2-op1"
+                                    aria-label="Laboratório - Subcategoria 2 - Opção 1">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Placeholder: Seletor -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 2</span>
+                            <div class="cfg-segmented" role="radiogroup"
+                                aria-label="Laboratório - Subcategoria 2 - Opção 2">
+                                <input type="radio" name="cfg-lab-s2-op2" id="cfg-lab-s2-op2-a" value="modo-a" checked>
+                                <label for="cfg-lab-s2-op2-a">Modo A</label>
+                                <input type="radio" name="cfg-lab-s2-op2" id="cfg-lab-s2-op2-b" value="modo-b">
+                                <label for="cfg-lab-s2-op2-b">Modo B</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+
+        </div>
+    </details>
+
+    <!-- ============================================== -->
+    <!-- GAVETA: BIBLIOTECA (placeholder modular)       -->
+    <!-- ============================================== -->
+    <details class="cfg-drawer">
+        <summary class="cfg-drawer-header">
+            <span class="cfg-caret" aria-hidden="true"></span>
+            <span class="cfg-drawer-title">Biblioteca</span>
+        </summary>
+
+        <div class="cfg-drawer-body">
+
+            <!-- Subgaveta 1 -->
+            <details class="cfg-subdrawer">
+                <summary class="cfg-drawer-header">
+                    <span class="cfg-caret" aria-hidden="true"></span>
+                    <span class="cfg-drawer-title">Subcategoria 1</span>
+                </summary>
+
+                <div class="cfg-subdrawer-body">
+                    <div class="cfg-options">
+
+                        <!-- Placeholder: Toggle -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 1</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-bib-s1-op1"
+                                    aria-label="Biblioteca - Subcategoria 1 - Opção 1">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Placeholder: Seletor -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 2</span>
+                            <div class="cfg-segmented" role="radiogroup"
+                                aria-label="Biblioteca - Subcategoria 1 - Opção 2">
+                                <input type="radio" name="cfg-bib-s1-op2" id="cfg-bib-s1-op2-a" value="modo-a" checked>
+                                <label for="cfg-bib-s1-op2-a">Modo A</label>
+                                <input type="radio" name="cfg-bib-s1-op2" id="cfg-bib-s1-op2-b" value="modo-b">
+                                <label for="cfg-bib-s1-op2-b">Modo B</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+
+            <!-- Subgaveta 2 -->
+            <details class="cfg-subdrawer">
+                <summary class="cfg-drawer-header">
+                    <span class="cfg-caret" aria-hidden="true"></span>
+                    <span class="cfg-drawer-title">Subcategoria 2</span>
+                </summary>
+
+                <div class="cfg-subdrawer-body">
+                    <div class="cfg-options">
+
+                        <!-- Placeholder: Toggle -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 1</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-bib-s2-op1"
+                                    aria-label="Biblioteca - Subcategoria 2 - Opção 1">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Placeholder: Seletor -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 2</span>
+                            <div class="cfg-segmented" role="radiogroup"
+                                aria-label="Biblioteca - Subcategoria 2 - Opção 2">
+                                <input type="radio" name="cfg-bib-s2-op2" id="cfg-bib-s2-op2-a" value="modo-a" checked>
+                                <label for="cfg-bib-s2-op2-a">Modo A</label>
+                                <input type="radio" name="cfg-bib-s2-op2" id="cfg-bib-s2-op2-b" value="modo-b">
+                                <label for="cfg-bib-s2-op2-b">Modo B</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+
+        </div>
+    </details>
+
+    <!-- ============================================== -->
+    <!-- GAVETA: VOCABULÁRIO (placeholder modular)      -->
+    <!-- ============================================== -->
+    <details class="cfg-drawer">
+        <summary class="cfg-drawer-header">
+            <span class="cfg-caret" aria-hidden="true"></span>
+            <span class="cfg-drawer-title">Vocabulário</span>
+        </summary>
+
+        <div class="cfg-drawer-body">
+
+            <!-- Subgaveta 1 -->
+            <details class="cfg-subdrawer">
+                <summary class="cfg-drawer-header">
+                    <span class="cfg-caret" aria-hidden="true"></span>
+                    <span class="cfg-drawer-title">Subcategoria 1</span>
+                </summary>
+
+                <div class="cfg-subdrawer-body">
+                    <div class="cfg-options">
+
+                        <!-- Placeholder: Toggle -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 1</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-voc-s1-op1"
+                                    aria-label="Vocabulário - Subcategoria 1 - Opção 1">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Placeholder: Seletor -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 2</span>
+                            <div class="cfg-segmented" role="radiogroup"
+                                aria-label="Vocabulário - Subcategoria 1 - Opção 2">
+                                <input type="radio" name="cfg-voc-s1-op2" id="cfg-voc-s1-op2-a" value="modo-a" checked>
+                                <label for="cfg-voc-s1-op2-a">Modo A</label>
+                                <input type="radio" name="cfg-voc-s1-op2" id="cfg-voc-s1-op2-b" value="modo-b">
+                                <label for="cfg-voc-s1-op2-b">Modo B</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+
+            <!-- Subgaveta 2 -->
+            <details class="cfg-subdrawer">
+                <summary class="cfg-drawer-header">
+                    <span class="cfg-caret" aria-hidden="true"></span>
+                    <span class="cfg-drawer-title">Subcategoria 2</span>
+                </summary>
+
+                <div class="cfg-subdrawer-body">
+                    <div class="cfg-options">
+
+                        <!-- Placeholder: Toggle -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 1</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-voc-s2-op1"
+                                    aria-label="Vocabulário - Subcategoria 2 - Opção 1">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Placeholder: Seletor -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 2</span>
+                            <div class="cfg-segmented" role="radiogroup"
+                                aria-label="Vocabulário - Subcategoria 2 - Opção 2">
+                                <input type="radio" name="cfg-voc-s2-op2" id="cfg-voc-s2-op2-a" value="modo-a" checked>
+                                <label for="cfg-voc-s2-op2-a">Modo A</label>
+                                <input type="radio" name="cfg-voc-s2-op2" id="cfg-voc-s2-op2-b" value="modo-b">
+                                <label for="cfg-voc-s2-op2-b">Modo B</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+
+        </div>
+    </details>
+
+    <!-- ============================================== -->
+    <!-- GAVETA: GERAL (placeholder modular)            -->
+    <!-- ============================================== -->
+    <details class="cfg-drawer">
+        <summary class="cfg-drawer-header">
+            <span class="cfg-caret" aria-hidden="true"></span>
+            <span class="cfg-drawer-title">Geral</span>
+        </summary>
+
+        <div class="cfg-drawer-body">
+
+            <!-- Subgaveta 1 -->
+            <details class="cfg-subdrawer">
+                <summary class="cfg-drawer-header">
+                    <span class="cfg-caret" aria-hidden="true"></span>
+                    <span class="cfg-drawer-title">Subcategoria 1</span>
+                </summary>
+
+                <div class="cfg-subdrawer-body">
+                    <div class="cfg-options">
+
+                        <!-- Placeholder: Toggle -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 1</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-ger-s1-op1"
+                                    aria-label="Geral - Subcategoria 1 - Opção 1">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Placeholder: Seletor -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 2</span>
+                            <div class="cfg-segmented" role="radiogroup" aria-label="Geral - Subcategoria 1 - Opção 2">
+                                <input type="radio" name="cfg-ger-s1-op2" id="cfg-ger-s1-op2-a" value="modo-a" checked>
+                                <label for="cfg-ger-s1-op2-a">Modo A</label>
+                                <input type="radio" name="cfg-ger-s1-op2" id="cfg-ger-s1-op2-b" value="modo-b">
+                                <label for="cfg-ger-s1-op2-b">Modo B</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+
+            <!-- Subgaveta 2 -->
+            <details class="cfg-subdrawer">
+                <summary class="cfg-drawer-header">
+                    <span class="cfg-caret" aria-hidden="true"></span>
+                    <span class="cfg-drawer-title">Subcategoria 2</span>
+                </summary>
+
+                <div class="cfg-subdrawer-body">
+                    <div class="cfg-options">
+
+                        <!-- Placeholder: Toggle -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 1</span>
+                            <label class="cfg-toggle">
+                                <input type="checkbox" name="cfg-ger-s2-op1"
+                                    aria-label="Geral - Subcategoria 2 - Opção 1">
+                                <span class="cfg-switch" aria-hidden="true"></span>
+                            </label>
+                        </div>
+
+                        <!-- Placeholder: Seletor -->
+                        <div class="cfg-option">
+                            <span class="cfg-label">Opção 2</span>
+                            <div class="cfg-segmented" role="radiogroup" aria-label="Geral - Subcategoria 2 - Opção 2">
+                                <input type="radio" name="cfg-ger-s2-op2" id="cfg-ger-s2-op2-a" value="modo-a" checked>
+                                <label for="cfg-ger-s2-op2-a">Modo A</label>
+                                <input type="radio" name="cfg-ger-s2-op2" id="cfg-ger-s2-op2-b" value="modo-b">
+                                <label for="cfg-ger-s2-op2-b">Modo B</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </details>
+
+        </div>
+    </details>
+
+</div><!-- /.cfg-panel -->
+<!--</body><!-- Marcador p/ Live Server: garante injeção e resposta completa -->

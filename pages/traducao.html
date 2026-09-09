@@ -1,0 +1,60 @@
+<!-- ============================================== -->
+<!-- TELA: TRADUÇÃO (tela inicial / padrão)         -->
+<!-- ============================================== -->
+<div class="traducao-screen">
+    <section class="progress-section" aria-label="Progresso da tradução">
+        <div class="progress-track">
+            <div class="progress-fill"></div>
+            <span class="progress-label">158/32542</span>
+        </div>
+    </section>
+
+    <section class="toolbar-section" aria-label="Ferramentas da tradução">
+        <button class="btn-filter" type="button">Filtros</button>
+        <span class="badge-vocab">Vocabulário: 1000 (A1 - A2)</span>
+    </section>
+
+    <section class="translation-workspace size-normal">
+        <section class="translation-column original-column" aria-labelledby="original-title">
+            <h2 class="card-title" id="original-title">Texto em inglês</h2>
+            <div class="scaffolding-hint" style="display: none;">S_ n_ g_ u_</div>
+            <div class="card reading-card">
+                <p>Every morning, she woke up with a clear goal in mind. Despite all the challenges and doubts from
+                    others, she never gave up on her dreams. Step by step, she built a successful career, proving that
+                    hard work, passion, and resilience truly pay off in the end.</p>
+            </div>
+            <div class="passive-review-box" style="display: none;"></div>
+        </section>
+
+        <section class="translation-column answer-column" aria-labelledby="translation-title">
+            <h2 class="card-title" id="translation-title">Sua tradução</h2>
+            <div class="card textarea-container">
+                <textarea class="translation-textarea"
+                    placeholder="Digite sua tradução aqui...">Todas as manhãs, ela acordava com um objetivo claro em mente. Apesar de todos os desafios e das dúvidas dos outros, ela nunca desistiu de seus sonhos. Passo a passo, ela construiu uma carreira de sucesso, provando que o trabalho árduo, a paixão e a resiliência realmente valem a pena no final.</textarea>
+            </div>
+        </section>
+    </section>
+
+    <footer class="actions-footer">
+        <button class="btn-split" type="button" aria-label="Marcar como favorita ou difícil">
+            <span class="split-star" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                </svg>
+            </span>
+            <span class="split-divider" aria-hidden="true"></span>
+            <span class="split-alert" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M12 2c5.523 0 10 4.477 10 10a10 10 0 0 1 -19.995 .324l-.005 -.324l.004 -.28c.148 -5.393 4.566 -9.72 9.996 -9.72zm.01 13l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -8a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" />
+                </svg>
+            </span>
+        </button>
+        <button class="btn-verify" type="button">VERIFICAR</button>
+        <button class="btn-nav-next" type="button" aria-label="Próxima tradução">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10 18l6 -6l-6 -6v12" />
+            </svg>
+        </button>
+    </footer>
+</div>
+<!--</body><!-- Marcador p/ Live Server: garante injeção e resposta completa -->

@@ -1,0 +1,58 @@
+{
+    "name": "Learner - Estudo de Inglês",
+    "short_name": "Learner",
+    "description": "Plataforma de aprendizado e tradução de inglês",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#222b38",
+    "theme_color": "#3F4A5A",
+    "lang": "pt-BR",
+    "categories": [
+        "education",
+        "productivity"
+    ],
+    "icons": [
+        {
+            "src": "./icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Tradução",
+            "short_name": "Traduzir",
+            "description": "Abrir tradutor direto",
+            "url": "./index.html#traducao",
+            "icons": [
+                {
+                    "src": "./icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "Quiz",
+            "short_name": "Quiz",
+            "description": "Iniciar quiz de vocabulário",
+            "url": "./index.html#quiz",
+            "icons": [
+                {
+                    "src": "./icon-192.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
+    ],
+    "screenshots": [],
+    "prefer_related_applications": false
+}

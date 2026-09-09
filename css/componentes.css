@@ -1,0 +1,239 @@
+/* ==========================================================================
+   componentes.css — COMPONENTES COMPARTILHADOS
+   Botões comuns (.icon-btn), barra de abas de topo (.tabs-bar)
+   e os ícones usados dentro das abas.
+   ========================================================================== */
+
+/* 1. BOTÃO DE ÍCONE (header mobile e usos gerais) */
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-label);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   2. BARRA DE ABAS INTERNAS (CORRIGIDA: 0px mobile, 10px PC, 7 abas no PC)
+   ========================================================================== */
+.tabs-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    width: calc(100% + 30px);
+    /* Anula os 15px de cada lado da .main-content */
+    margin: calc(-1 * var(--space-10)) -15px var(--space-15) -15px;
+    /* Encosta 0px nas laterais */
+}
+
+/* O Card da Aba — Mobile */
+.tab-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #353D4B;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    height: 42px;
+    flex: 1;
+    padding: 0 10px;
+    border-radius: 0;
+    /* No mobile encosta reto de ponta a ponta */
+}
+
+/* Estado Ativo: mais claro + borda inferior verde */
+.tab-item.active {
+    background-color: #475366;
+    border-bottom: 3px solid var(--color-primary-green);
+}
+
+/* Ícone da página dentro da aba — Mobile */
+.tab-page-icon {
+    display: inline-block;
+    flex-shrink: 0;
+    color: var(--color-text-main);
+    background-color: currentColor;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    width: 22px;
+    height: 22px;
+}
+
+/* Botão Fechar */
+.tab-close-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    color: #FF6B6B;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.tab-close-btn svg {
+    width: 15px !important;
+    height: 15px !important;
+    stroke-width: 2.5;
+}
+
+.tab-close-btn:hover {
+    opacity: 0.85;
+    transform: scale(1.15);
+}
+
+/* Mobile: esconde da 6ª aba em diante (máx. 5 abas) */
+.tab-item:nth-child(n+6) {
+    display: none;
+}
+
+/* ==========================================================================
+   DESKTOP ADAPTATION PARA AS ABAS (@media min-width: 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+
+    .tabs-bar {
+        width: calc(100% + 60px);
+        margin: calc(-1 * var(--space-20)) -30px var(--space-20) -30px;
+        gap: var(--space-5);
+        padding: 0 10px;
+    }
+
+    .tab-item {
+        height: 44px;
+        max-width: none;
+        flex: 1;
+        min-width: 0;
+        padding: 0 14px;
+        border-radius: 0;
+    }
+
+    /* FORÇA A EXIBIÇÃO DAS 7 ABAS NO DESKTOP! */
+    .tab-item:nth-child(n+6) {
+        display: flex !important;
+    }
+
+    /* Ícone da página no Desktop (Aumentado para 24px) */
+    .tab-page-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Botão Fechar no Desktop */
+    .tab-close-btn svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+    .tab-item:not(.active):hover {
+        background-color: #3d4655;
+    }
+}
+
+/* ==========================================================================
+   3. SELETOR SEGMENTADO (Pequeno | Normal | Grande, etc.)
+   ========================================================================== */
+.cfg-segmented {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius-sm);
+    padding: 2px;
+    flex-shrink: 0;
+}
+
+/* Esconde os radios nativos, mantendo acessibilidade (teclado) */
+.cfg-segmented input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+}
+
+.cfg-segmented label {
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 0 var(--space-10);
+    color: var(--color-text-label);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: calc(var(--radius-sm) - 2px);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Opção selecionada: pílula verde */
+.cfg-segmented input:checked+label {
+    background-color: var(--color-primary-green);
+    color: #222B38;
+}
+
+/* Foco visível via teclado */
+.cfg-segmented input:focus-visible+label {
+    outline: 2px solid var(--color-primary-green);
+    outline-offset: 1px;
+}
+
+/* ==========================================================================
+   4. TOGGLE SWITCH (pílula On/Off)
+   ========================================================================== */
+.cfg-toggle {
+    display: inline-flex;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* A trilha da pílula (o próprio input, estilizado) */
+.cfg-toggle input {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    width: 46px;
+    height: 26px;
+    border-radius: 13px;
+    background-color: #5F6F86;
+    /* cinza: inativo */
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s ease;
+}
+
+/* A bolinha deslizante */
+.cfg-toggle input::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #F2F2F2;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+/* Estado ativo: verde */
+.cfg-toggle input:checked {
+    background-color: #7BB781;
+}
+
+.cfg-toggle input:checked::before {
+    transform: translateX(20px);
+}
+
+/* Foco visível via teclado */
+.cfg-toggle input:focus-visible {
+    outline: 2px solid var(--color-primary-green);
+    outline-offset: 2px;
+}

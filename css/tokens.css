@@ -1,0 +1,31 @@
+/* ==========================================================================
+   tokens.css — DESIGN TOKENS (SISTEMA BASE 5PX E CORES DO LEARNER)
+   Variáveis :root compartilhadas por todo o projeto.
+   ========================================================================== */
+:root {
+    /* Cores de Fundo */
+    --bg-app: #222b38;
+    --bg-main: #2A313C;
+    --bg-sidebar: #3F4A5A;
+    --bg-header-mobile: #3F4A5A;
+    --bg-nav-mobile: #4A5668;
+
+    /* Identidade e Textos */
+    --color-primary-green: #7BB781;
+    --color-text-main: #F2F2F2;
+    --color-text-muted: #E6E6E6;
+    --color-text-label: #C0C0C0;
+    --color-border: rgba(179, 179, 179, 0.4);
+
+    /* Escala de Espaçamento Base 5px */
+    --space-5: 5px;
+    --space-10: 10px;
+    --space-15: 15px;
+    --space-20: 20px;
+    --space-25: 25px;
+    --space-30: 30px;
+
+    /* Arredondamento */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+}

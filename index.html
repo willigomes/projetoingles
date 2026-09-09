@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Learner - Plataforma de Aprendizado e Tradução de Inglês">
+    <title>Learner - Estudo de Inglês</title>
+
+    <!-- ============ PWA — Progressive Web App ============ -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3F4A5A">
+
+    <!-- PWA: instalável em Android e Desktop (Chrome) -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- PWA: suporte iOS (Safari / iPhone / iPad) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Learner">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <!-- ===================================================== -->
+
+    <!-- Google Fonts: Inter e Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- ============================================== -->
+        <!-- 1. HEADER EXCLUSIVO PARA MOBILE                -->
+        <!-- ============================================== -->
+        <header class="mobile-header">
+            <button type="button" class="icon-btn" id="btn-menu-mobile" aria-label="Abrir Menu"
+                aria-controls="sidebar-drawer" aria-expanded="false">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            <h1 class="mobile-header-title">TRADUÇÃO</h1>
+            <button type="button" class="icon-btn" aria-label="Configurações" data-target="configuracoes">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                    </path>
+                </svg>
+            </button>
+        </header>
+
+        <!-- ============================================== -->
+        <!-- 2. SIDEBAR FLUTUANTE COM ANCORAGEM (DESKTOP)   -->
+        <!-- ============================================== -->
+        <div class="sidebar-anchor">
+            <aside class="sidebar" id="sidebar-drawer">
+                <div class="sidebar-top">
+                    <div class="brand-logo">
+                        <span class="logo-anchor">L</span><span class="logo-tail">EARNER</span>
+                    </div>
+                    <nav class="sidebar-nav" aria-label="Menu Principal">
+                        <!-- Seção Estudar -->
+                        <div class="nav-section">
+                            <span class="nav-section-title">Estudar</span>
+                            <ul class="nav-list">
+                                <li><a href="#" class="nav-link active" data-target="traducao" data-tooltip="Tradução">
+                                        <span class="nav-link-text">Tradução</span>
+                                        <span class="nav-icon icon-notebook" aria-hidden="true"></span>
+                                    </a></li>
+                            </ul>
+                        </div>
+                        <!-- Seção Laboratório -->
+                        <div class="nav-section">
+                            <span class="nav-section-title">Laboratório</span>
+                            <ul class="nav-list">
+                                <li><a href="#" class="nav-link" data-target="analisador" data-tooltip="Analisador">
+                                        <span class="nav-link-text">Analisador</span>
+                                        <span class="nav-icon icon-clipboard" aria-hidden="true"></span>
+                                    </a></li>
+                                <li><a href="#" class="nav-link" data-target="quiz" data-tooltip="Quiz">
+                                        <span class="nav-link-text">Quiz</span>
+                                        <span class="nav-icon icon-question-mark" aria-hidden="true"></span>
+                                    </a></li>
+                            </ul>
+                        </div>
+                        <!-- Seção Biblioteca -->
+                        <div class="nav-section">
+                            <span class="nav-section-title">Biblioteca</span>
+                            <ul class="nav-list">
+                                <li><a href="#" class="nav-link" data-target="favoritos" data-tooltip="Favoritos">
+                                        <span class="nav-link-text">Favoritos</span>
+                                        <span class="nav-icon icon-star" aria-hidden="true"></span>
+                                    </a></li>
+                            </ul>
+                        </div>
+                        <!-- Seção Vocabulário -->
+                        <div class="nav-section">
+                            <span class="nav-section-title">Vocabulário</span>
+                            <ul class="nav-list">
+                                <li><a href="#" class="nav-link" data-target="categorias" data-tooltip="Categorias">
+                                        <span class="nav-link-text">Categorias</span>
+                                        <span class="nav-icon icon-category" aria-hidden="true"></span>
+                                    </a></li>
+                                <li><a href="#" class="nav-link" data-target="ficha" data-tooltip="Ficha técnica">
+                                        <span class="nav-link-text">Ficha técnica</span>
+                                        <span class="nav-icon icon-sort-a-z" aria-hidden="true"></span>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <!-- Rodapé Sidebar -->
+                <div class="sidebar-footer">
+                    <button type="button" class="sidebar-action-btn" data-target="configuracoes"
+                        data-tooltip="Configurações">
+                        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                            </path>
+                        </svg>
+                        <span class="nav-link-text">Configurações</span>
+                    </button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 3. ÁREA DE CONTEÚDO (O SLOT ONDE ENTRA TUDO)   -->
+        <!-- O HTML de cada tela vive em pages/*.html e é   -->
+        <!-- injetado aqui pelo app.js (via fetch).         -->
+        <!-- ============================================== -->
+        <main class="main-content" id="app-main">
+
+            <!-- ============================================== -->
+            <!-- 3.1 BARRA DE ABAS INTERNAS ESTÁTICAS (TABS BAR) -->
+            <!-- Representa visualmente as páginas abertas.      -->
+            <!-- Máx. 5 abas visíveis no mobile / 7 no desktop.  -->
+            <!-- ============================================== -->
+            <div class="tabs-bar" role="tablist" aria-label="Páginas abertas">
+
+                <!-- Aba 1: Tradução (ativa) -->
+                <div class="tab-item active" role="tab" aria-selected="true" tabindex="0">
+                    <span class="tab-page-icon icon-notebook" aria-hidden="true"></span>
+                    <button type="button" class="tab-close-btn" aria-label="Fechar aba Tradução">
+                        <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Aba 2: Analisador de textos -->
+                <div class="tab-item" role="tab" aria-selected="false" tabindex="-1">
+                    <span class="tab-page-icon icon-clipboard" aria-hidden="true"></span>
+                    <button type="button" class="tab-close-btn" aria-label="Fechar aba Analisador">
+                        <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Aba 3: Quiz -->
+                <div class="tab-item" role="tab" aria-selected="false" tabindex="-1">
+                    <span class="tab-page-icon icon-question-mark" aria-hidden="true"></span>
+                    <button type="button" class="tab-close-btn" aria-label="Fechar aba Quiz">
+                        <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Aba 4: Favoritos -->
+                <div class="tab-item" role="tab" aria-selected="false" tabindex="-1">
+                    <span class="tab-page-icon icon-star" aria-hidden="true"></span>
+                    <button type="button" class="tab-close-btn" aria-label="Fechar aba Favoritos">
+                        <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Aba 5: Categorias -->
+                <div class="tab-item" role="tab" aria-selected="false" tabindex="-1">
+                    <span class="tab-page-icon icon-category" aria-hidden="true"></span>
+                    <button type="button" class="tab-close-btn" aria-label="Fechar aba Categorias">
+                        <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Aba 6: Ficha técnica (somente desktop) -->
+                <div class="tab-item" role="tab" aria-selected="false" tabindex="-1">
+                    <span class="tab-page-icon icon-sort-a-z" aria-hidden="true"></span>
+                    <button type="button" class="tab-close-btn" aria-label="Fechar aba Ficha técnica">
+                        <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Aba 7: Configurações (somente desktop) -->
+                <div class="tab-item" role="tab" aria-selected="false" tabindex="-1">
+                    <span class="tab-page-icon icon-cog" aria-hidden="true"></span>
+                    <button type="button" class="tab-close-btn" aria-label="Fechar aba Configurações">
+                        <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="content-wrapper">
+
+                <!-- Slot único onde o HTML da tela atual é injetado -->
+                <section id="app-main-content" class="tela-conteudo active">
+                    <!-- Carregado dinamicamente pelo app.js -->
+                </section>
+
+            </div>
+        </main>
+
+        <!-- ============================================== -->
+        <!-- 4. BOTTOM NAV EXCLUSIVO PARA MOBILE            -->
+        <!-- ============================================== -->
+        <nav class="mobile-bottom-nav" aria-label="Menu Inferior Mobile">
+            <a href="#" class="bottom-nav-item active" data-sheet="estudar">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span>ESTUDAR</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-sheet="laboratorio">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M10 2v7.31L4 18a2 2 0 0 0 1.66 3h12.68A2 2 0 0 0 20 18l-6-8.69V2"></path>
+                    <line x1="8" y1="2" x2="16" y2="2"></line>
+                </svg>
+                <span>LABORATÓRIO</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-sheet="biblioteca">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+                    <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
+                </svg>
+                <span>BIBLIOTECA</span>
+            </a>
+            <a href="#" class="bottom-nav-item" data-sheet="vocabulario">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M12 20h9"></path>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+                <span>VOCABULÁRIO</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 5. BOTTOM SHEET + OVERLAY (EXCLUSIVO MOBILE)   -->
+    <!-- ============================================== -->
+    <div class="bottom-sheet-overlay" id="sheetOverlay"></div>
+
+    <div class="bottom-sheet" id="bottomSheet" role="dialog" aria-modal="true">
+        <div class="sheet-drag-zone" id="sheetDragZone">
+            <span class="sheet-handle"></span>
+        </div>
+        <div class="sheet-content" id="sheetContent">
+            <!-- Conteúdo injetado via JS de acordo com a categoria clicada -->
+        </div>
+    </div>
+
+    <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+
+    <!-- Os scripts agora vivem na pasta js/. O app.js DEVE vir por último:
+         depende de todos os elementos do DOM e das funções globais dos outros. -->
+    <script src="js/drawer.js" defer></script>
+    <script src="js/bottom-sheet.js" defer></script>
+    <script src="js/sidebar-hover.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>

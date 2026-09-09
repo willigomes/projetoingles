@@ -1,0 +1,19 @@
+/* ==========================================================================
+   style.css — O MAESTRO
+   Apenas importa os outros arquivos CSS. Nenhuma regra de estilo aqui.
+   Ordem: tokens (variáveis) → shell (casca) → componentes (compartilhados)
+   → estilos exclusivos de cada tela.
+   ========================================================================== */
+
+@import 'css/tokens.css';
+@import 'css/shell.css';
+@import 'css/componentes.css';
+
+/* Estilos por Tela */
+@import 'css/pages/traducao.css';
+@import 'css/pages/quiz.css';
+@import 'css/pages/analisador.css';
+@import 'css/pages/favoritos.css';
+@import 'css/pages/categorias.css';
+@import 'css/pages/ficha.css';
+@import 'css/pages/configuracoes.css';

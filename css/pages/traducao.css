@@ -1,0 +1,536 @@
+/* ========================================================================== */
+/* traducao.css — estilos exclusivos da tela de tradução                     */
+/* ========================================================================== */
+
+body,
+button,
+input,
+textarea {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility;
+}
+
+.traducao-screen {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+}
+
+/* 1. SEÇÃO DE PROGRESSO */
+.progress-section {
+    width: 100%;
+}
+
+.progress-track {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background-color: #353D4B;
+}
+
+.progress-fill {
+    width: 15%;
+    height: 100%;
+    border-radius: var(--radius-md);
+    background-color: var(--color-primary-green);
+}
+
+.progress-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-label);
+    /* Bloco numérico (158/32542): não é leitura contínua → Montserrat */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* 2. BARRA DE FERRAMENTAS / FILTROS
+   No Mobile: 'Vocabulário' fica no topo e 'Filtros' embaixo (column-reverse).
+   No Desktop: 'Filtros' à esquerda e 'Vocabulário' à direita (row). */
+.toolbar-section {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--space-5);
+    width: 100%;
+}
+
+.btn-filter,
+.badge-vocab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    border-radius: var(--radius-md);
+    color: var(--color-text-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.btn-filter {
+    font-family: 'Inter', sans-serif;
+    border: 0;
+    background-color: #5F6F86;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn-filter:hover,
+.btn-filter:focus-visible {
+    background-color: #6C7D97;
+}
+
+.badge-vocab {
+    background-color: #557B59;
+}
+
+/* 3. ÁREA DE TRADUÇÃO (WORKSPACES & CARDS) */
+.translation-workspace {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+    width: 100%;
+}
+
+.translation-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.card-title {
+    color: var(--color-text-muted);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.card {
+    height: 125px;
+    overflow-y: auto;
+    padding: var(--space-10);
+    border-radius: var(--radius-md);
+    background-color: #353D4B;
+    color: var(--color-text-main);
+    /* Blocos de tradução/leitura: texto sempre lido → Inter */
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.card::-webkit-scrollbar,
+.translation-textarea::-webkit-scrollbar {
+    width: 6px;
+}
+
+.card::-webkit-scrollbar-track,
+.translation-textarea::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.card::-webkit-scrollbar-thumb,
+.translation-textarea::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #5F6F86;
+}
+
+.reading-card p {
+    margin: 0;
+}
+
+.translation-textarea {
+    display: block;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+}
+
+.translation-textarea::placeholder {
+    color: var(--color-text-label);
+    opacity: 0.8;
+}
+
+.translation-textarea:focus-visible {
+    outline: 2px solid var(--color-primary-green);
+    outline-offset: 2px;
+}
+
+/* 4. RODAPÉ DE AÇÕES */
+.actions-footer {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: var(--space-10);
+    height: 50px;
+    margin-top: auto;
+    padding-top: var(--space-5);
+    width: 100%;
+}
+
+.btn-split,
+.btn-verify,
+.btn-nav-next {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid rgba(242, 242, 242, 0.35);
+    border-radius: var(--radius-md);
+    color: var(--color-text-main);
+    cursor: pointer;
+    background-color: #64768F;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-split:hover,
+.btn-verify:hover,
+.btn-nav-next:hover {
+    background-color: #74879F;
+}
+
+.btn-split,
+.btn-nav-next {
+    position: relative;
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+/* Bloco split com diagonal:
+   - "star filled.svg" (amarelo) no canto superior-esquerdo
+   - "alert-circle.svg" (vermelho) no canto inferior-direito */
+.btn-split {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.split-star {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F8EA56;
+    line-height: 1;
+    transition: transform 0.15s ease;
+}
+
+.split-star svg {
+    width: 19px;
+    height: 19px;
+    display: block;
+}
+
+.split-divider {
+    position: absolute;
+    z-index: 1;
+    top: -30%;
+    left: 50%;
+    width: 2px;
+    height: 160%;
+    background-color: #3A414B;
+    transform: rotate(45deg);
+    transform-origin: center;
+    pointer-events: none;
+}
+
+.split-alert {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF6B6B;
+    transition: transform 0.15s ease;
+}
+
+.split-alert svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+.btn-split:hover .split-star {
+    transform: scale(1.08);
+}
+
+.btn-split:hover .split-alert {
+    transform: scale(1.08);
+}
+
+.btn-verify {
+    font-family: 'Inter', sans-serif;
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bloco à direita de Verificar com 'caret-right.svg' */
+.btn-nav-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-main);
+}
+
+.btn-nav-next svg {
+    color: #A2A8B2;
+    width: 24px;
+    height: 24px;
+    stroke-width: 1.8;
+    display: block;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.btn-nav-next:hover {
+    color: var(--color-text-main);
+}
+
+.btn-nav-next:hover svg {
+    transform: translateX(2px);
+}
+
+.btn-filter:focus-visible,
+.btn-split:focus-visible,
+.btn-verify:focus-visible,
+.btn-nav-next:focus-visible {
+    outline: 2px solid var(--color-primary-green);
+    outline-offset: 2px;
+}
+
+/* 5. GANCHOS DE CONFIGURAÇÃO */
+.translation-workspace.order-inverted {
+    flex-direction: column-reverse;
+}
+
+.translation-workspace.size-small .card {
+    height: 100px;
+}
+
+.translation-workspace.size-large .card {
+    height: 160px;
+}
+
+.card.card-success {
+    border: 1.5px solid var(--color-primary-green);
+    box-shadow: 0 0 10px rgba(123, 183, 129, 0.2);
+}
+
+.card.card-stubborn {
+    border: 1.5px solid #eab308;
+}
+
+/* 6. ADAPTAÇÃO MOBILE (@media max-width: 767px) */
+@media (max-width: 767px) {
+    .toolbar-section {
+        flex-direction: column-reverse;
+        gap: var(--space-5);
+    }
+
+    /* Botão de filtro 50% maior no mobile (42px → 63px) */
+    .btn-filter {
+        min-height: 63px;
+        height: 63px;
+        font-size: 1.125rem;
+    }
+
+    /* Bloco de vocabulário 50% menor no mobile (42px → 21px) */
+    .badge-vocab {
+        min-height: 21px;
+        height: 21px;
+        font-size: 0.7rem;
+        padding: 0 var(--space-5);
+    }
+
+    .translation-workspace {
+        gap: var(--space-10);
+    }
+
+    .card {
+        height: 125px;
+    }
+
+    .card-title {
+        font-size: 0.8125rem;
+        text-align: center;
+        margin-bottom: 4px;
+    }
+
+    .actions-footer {
+        height: 50px;
+        gap: var(--space-10);
+    }
+
+    .btn-split,
+    .btn-nav-next {
+        width: 50px;
+        height: 50px;
+        flex: 0 0 50px;
+    }
+
+    .btn-verify {
+        flex: 1 1 auto;
+        height: 50px;
+    }
+
+    .translation-workspace.order-inverted {
+        flex-direction: column-reverse;
+    }
+
+    .translation-workspace.size-small .card {
+        height: 100px;
+    }
+
+    .translation-workspace.size-large .card {
+        height: 150px;
+    }
+}
+
+/* 7. ADAPTAÇÃO DESKTOP (@media min-width: 768px) */
+@media (min-width: 768px) {
+    .traducao-screen {
+        /* Os 70% centrais (margens de 15% por lado) são definidos
+           no .content-wrapper (shell.css); aqui ocupa 100% dele. */
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
+        gap: var(--space-15);
+    }
+
+    .progress-track {
+        height: 22px;
+    }
+
+    .progress-label {
+        font-size: 0.8125rem;
+    }
+
+    .toolbar-section {
+        flex-direction: row;
+        gap: var(--space-15);
+    }
+
+    .btn-filter {
+        flex: 1;
+        height: 42px;
+    }
+
+    .badge-vocab {
+        width: 280px;
+        height: 42px;
+        flex: 0 0 280px;
+    }
+
+    .translation-workspace {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-20);
+        width: 100%;
+    }
+
+    .card {
+        height: 360px;
+        padding: var(--space-15);
+        font-size: 1.05rem;
+        line-height: 1.55;
+    }
+
+    .card-title {
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    .actions-footer {
+        height: 60px;
+        gap: var(--space-15);
+        justify-content: stretch;
+    }
+
+    .btn-split,
+    .btn-nav-next {
+        flex: 0 0 60px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .btn-split .split-star {
+        top: 5px;
+        left: 5px;
+    }
+
+    .btn-split .split-star svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .btn-split .split-alert {
+        right: 5px;
+        bottom: 5px;
+    }
+
+    .btn-split .split-alert svg {
+        width: 21px;
+        height: 21px;
+    }
+
+    .btn-verify {
+        flex: 1 1 auto;
+        max-width: none;
+        height: 60px;
+        font-size: 1.125rem;
+        font-weight: 700;
+    }
+
+    .btn-nav-next svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Inversão PT → EN: a grade troca a ordem visual, o texto não. */
+    .translation-workspace.order-inverted {
+        grid-template-columns: 1fr 1fr;
+        direction: rtl;
+    }
+
+    .translation-workspace.order-inverted .translation-column {
+        direction: ltr;
+    }
+
+    .translation-workspace.size-small .card {
+        height: 280px;
+    }
+
+    .translation-workspace.size-large .card {
+        height: 440px;
+    }
+}

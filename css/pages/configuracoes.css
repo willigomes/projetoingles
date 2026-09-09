@@ -1,0 +1,143 @@
+/* ==========================================================================
+   configuracoes.css — TELA CONFIGURAÇÕES
+   Painel único, gavetas, subgavetas e a lista de opções.
+   (Os controles reutilizáveis — toggles e seletores segmentados —
+   ficam em css/componentes.css)
+   ========================================================================== */
+
+/* 1. Painel único: abriga TODAS as gavetas de categoria (Estudar,
+   Laboratório, Biblioteca...). As gavetas apenas empurram umas às outras
+   para baixo ao expandir, sem caixas individuais. */
+.cfg-panel {
+    background-color: #353D4B;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+/* 1.1 Gaveta de categoria: sem caixa própria; divisor sutil entre elas */
+.cfg-drawer+.cfg-drawer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Cabeçalho clicável da gaveta/subgaveta (summary) */
+.cfg-drawer-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-10);
+    min-height: 44px;
+    padding: var(--space-10) var(--space-15);
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    /* Remove o marcador padrão do <summary> (Firefox) */
+}
+
+.cfg-drawer-header::-webkit-details-marker {
+    display: none;
+    /* Remove o marcador padrão (Safari/Chrome) */
+}
+
+/* Título da gaveta principal: caixa alta, verde, Montserrat */
+.cfg-drawer>.cfg-drawer-header .cfg-drawer-title {
+    color: var(--color-primary-green);
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* 2. Corpo da gaveta principal: recuo lateral de 15px para as subgavetas */
+.cfg-drawer-body {
+    padding: 0 var(--space-15) var(--space-15);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+}
+
+/* 3. Subgaveta (ex: "Tela de Estudo", "Menu de Filtros") */
+.cfg-subdrawer {
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(179, 179, 179, 0.2);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+/* Título da subgaveta: texto normal, branco, Inter */
+.cfg-subdrawer>.cfg-drawer-header .cfg-drawer-title {
+    color: var(--color-text-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+/* 4. Corpo da subgaveta: recuo de 25px + linha-guia vertical (15% opacidade)
+   A linha é desenhada via ::before e para na última opção — não desce
+   até o fim do corpo da subgaveta. */
+.cfg-subdrawer-body {
+    position: relative;
+    margin-left: 25px;
+    padding: 0 var(--space-15) var(--space-10);
+}
+
+.cfg-subdrawer-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    /* Para na altura da última opção: compensa o padding-bottom do corpo */
+    bottom: var(--space-10);
+    left: 0;
+    width: 2px;
+    background-color: rgba(242, 242, 242, 0.15);
+    border-radius: 1px;
+}
+
+/* 5. Lista de opções internas */
+.cfg-options {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Linha de opção: rótulo à esquerda, controle à direita, 44px mín. */
+.cfg-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-10);
+    min-height: 44px;
+    padding: var(--space-5) 0;
+}
+
+/* Separador sutil entre as linhas de opção */
+.cfg-option+.cfg-option {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cfg-label {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* 6. Seta (caret) das gavetas: gira 90° quando aberta */
+.cfg-caret {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    -webkit-mask-image: url('../../icones/caret-right.svg');
+    mask-image: url('../../icones/caret-right.svg');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    transition: transform 0.2s ease;
+}
+
+details[open]>.cfg-drawer-header .cfg-caret {
+    transform: rotate(90deg);
+}
