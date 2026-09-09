@@ -191,4 +191,27 @@ if ('serviceWorker' in navigator) {
        ---------------------------------------------------------------------- */
     window.navegarPara = navegarPara;
     navegarPeloHash();
+
+    /* ----------------------------------------------------------------------
+       7. GESTÃO DO TECLADO VIRTUAL (Auto-ocultar Filtros ao Digitar)
+       ----------------------------------------------------------------------
+       Usa delegação de eventos no document para capturar focus/blur mesmo
+       quando o HTML da tela de Tradução é injetado dinamicamente via fetch.
+
+       • focus  → adiciona body.keyboard-open → CSS oculta .btn-filter
+       • blur   → remove body.keyboard-open   → CSS restaura .btn-filter
+       ---------------------------------------------------------------------- */
+    document.addEventListener('focus', function (event) {
+        if (event.target && event.target.classList.contains('translation-textarea')) {
+            document.body.classList.add('keyboard-open');
+        }
+    }, true /* capture: true garante disparo antes do target */
+    );
+
+    document.addEventListener('blur', function (event) {
+        if (event.target && event.target.classList.contains('translation-textarea')) {
+            document.body.classList.remove('keyboard-open');
+        }
+    }, true
+    );
 })();
